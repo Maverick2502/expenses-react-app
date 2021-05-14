@@ -24,11 +24,13 @@ function App() {
     },
   ];
 
+  // 3
   function addExpenseHandler(expense) {
     console.log("App.js");
     console.log(expense);
   }
 
+  // 3.1 - onAddExpense
   return (
     <div className="App">
       <NewExpense onAddExpense={addExpenseHandler} />

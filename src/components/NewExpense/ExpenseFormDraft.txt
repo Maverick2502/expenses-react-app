@@ -1,0 +1,69 @@
+import { useState } from "react";
+import "./ExpenseForm.css";
+
+// Clearing the inputs
+const initialData = {
+  title: "",
+  amount: "",
+  date: "",
+};
+
+function ExpenseForm(props) {
+  const [state, setState] = useState(initialData);
+
+  function handleOnChange(e) {
+    const target = e.target;
+    setState({ ...state, [target.name]: target.value });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setState(initialData);
+
+    // Handling Form Submission
+    props.onSaveExpenseData(state);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="new-expense__controls">
+        <div className="new-expense__control">
+          <label>Title</label>
+          <input
+            type="text"
+            value={state.title}
+            onChange={handleOnChange}
+            name="title"
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Amount</label>
+          <input
+            type="number"
+            min="0.01"
+            step="0.01"
+            value={state.amount}
+            onChange={handleOnChange}
+            name="amount"
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input
+            type="date"
+            min="2019-01-01"
+            max="2021-12-31"
+            value={state.date}
+            onChange={handleOnChange}
+            name="date"
+          />
+        </div>
+      </div>
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
+    </form>
+  );
+}
+
+export default ExpenseForm;
