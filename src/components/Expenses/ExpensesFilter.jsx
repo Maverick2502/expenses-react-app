@@ -1,10 +1,10 @@
 import "./ExpensesFilter.css";
-
+// adding props
 function ExpensesFilter(props) {
-  // 1
+  // 1 triggering a function
   function dropDownHandler(e) {
     // console.log(e.target.value);
-    //  3
+    //  2.2
     props.onChangeFilter(e.target.value);
   }
 
@@ -12,8 +12,8 @@ function ExpensesFilter(props) {
     <div className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        {/* 1.1 - onChange */}
-        {/* 4.2 - props.selected */}
+        {/* 1.1 - passing a 'pointer' to onChange={dropDownHandler} */}
+        {/* 3.3 - props.selected */}
         <select value={props.selected} onChange={dropDownHandler}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
