@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { flushSync } from "react-dom";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
@@ -16,6 +17,7 @@ function NewExpense(props) {
     props.onAddExpense(expenseData);
     setIsEditing(false);
   }
+
   function startEditingHandler() {
     setIsEditing(true);
   }
@@ -23,6 +25,7 @@ function NewExpense(props) {
   function stopEditingHandler() {
     setIsEditing(false);
   }
+
   return (
     <div className="new-expense">
       {/* onSave - 1 */}
