@@ -31,7 +31,7 @@ const SAMPLE_EXPENSES = [
     id: "e5",
     title: "Pixel 6",
     amount: 999,
-    date: new Date(2022, 11, 12),
+    date: new Date(2021, 11, 12),
   },
 ];
 
